@@ -24,11 +24,11 @@ recognition.addEventListener('result', (e) => {
   let text = e.results[last][0].transcript;
   outputYou.textContent = text;
 	socket.emit('chat message', text);
+});
 
   socket.on('bot reply', function(replyText) {
     outputBot.textContent = replyText;
   synthVoice(replyText);
-});
 });
 
 recognition.addEventListener('speechend', () => {
